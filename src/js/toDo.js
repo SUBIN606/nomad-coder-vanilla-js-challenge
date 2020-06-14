@@ -1,6 +1,4 @@
-
-const toDoContainer = document.querySelector(".js-todo-container"),
-  form = toDoContainer.querySelector(".js-toDo-form"),
+const form = document.querySelector(".js-toDo-form"),
   input = form.querySelector("input"),
   pendingArea = document.querySelector(".js-pendingList"),
   finishedArea = document.querySelector(".js-finishedList");
