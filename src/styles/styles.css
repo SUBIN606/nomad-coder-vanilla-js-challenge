@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;400;500;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+/* font-family: 'Gothic A1', sans-serif;
+font-family: 'Quicksand', sans-serif; */
+@font-face { font-family: 'NEXON Lv1 Gothic OTF'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff'); font-weight: normal; font-style: normal; }
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Quicksand', 'NEXON Lv1 Gothic OTF', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    background-image: linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+}
+input{
+    font-family: 'Gothic A1', sans-serif;
+    font-size: 15pt;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 20rem;
+    outline: none;
+}
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+ @-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+.fade-in {
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+.bg-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+}
+.default-text-container{
+    display: grid;
+    margin: 65px auto 30px auto;
+}
+.default-text-container span{
+    margin: auto;
+}
+.js-date{
+    font-size: 15pt;
+    letter-spacing: 10px;
+}
+.js-greeting-text{
+    font-size: 30pt;
+}
+.js-clock{
+    font-size: 60pt;
+}
+.js-name-form{
+    padding: 20px;
+    text-align: center;
+}
+.js-name-form input {
+    text-align: center;
+}
+.hide{
+    display: none;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>momentum-clone</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div class="default-text-container">
+            <span class="js-date"></span>
+            <span class="js-clock"></span>
+            <span class="js-greeting-text">Hello Stranger!</span>    
+            <form class="js-name-form hide">
+                <input type="text" placeholder="Enter Your Name">
+            </form>
+        </div>
+        
+        <div class="js-todo-container hide">
+            <h2>Tasks</h2>
+            <form class="js-toDo-form">
+              <input type="text" placeholder="Add task" />
+            </form>
+      
+            <div>
+              <h2>Pending</h2>
+              <ul class="js-pendingList"></ul>
+            </div>
+      
+            <div>
+              <h2>Finished</h2>
+              <ul class="js-finishedList"></ul>
+            </div>
+        </div>
+
+        <div class="js-weather-container">
+            <img class="js-weather-icon">
+            <span class="js-weather"></span>
+        </div>
+        
+        <script src="src/js/index.js"></script>
+        <script src="src/js/toDo.js"></script>
+        <script src="src/js/weather.js"></script>
+    </body>
+</html>

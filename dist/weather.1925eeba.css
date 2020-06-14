@@ -1,0 +1,19 @@
+.js-weather-container{
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    right: 20px;
+}
+.js-weather-icon{
+    width: 70px;
+    display: block;
+    margin: auto;
+}
+.js-weather{
+    text-align: center;
+    position: relative;
+    top: -10px;
+    font-weight: 200;
+}
+
+/*# sourceMappingURL=/weather.1925eeba.css.map */
