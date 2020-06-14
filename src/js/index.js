@@ -1,4 +1,4 @@
-import images from "../images/*.jpg";
+// import images from "../images/*.jpg";
 
 const USERS = "users";
 const body = document.querySelector("body"),
@@ -19,7 +19,8 @@ function getRandumNum() {
 function setBackgroundImage() {
     const num = getRandumNum();
     const image = new Image();
-    image.src = `${images[num]}`;
+    image.src = `src/images/${num}.jpg`;
+    // image.src = `${images[num]}`;
     image.classList.add("bg-image");
     image.classList.add("fade-in");
     body.appendChild(image);
