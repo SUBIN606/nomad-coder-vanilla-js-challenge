@@ -117,66 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/js/weather.js":[function(require,module,exports) {
-var COORDS = "coords";
-var API_KEY = "76a3e5ae28ff2a5f76a18c6cb0242bde";
-var weatherContainer = document.querySelector(".js-weather-container");
-var weatherIcon = weatherContainer.querySelector(".js-weather-icon");
-var weatherSpan = weatherContainer.querySelector(".js-weather");
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-function saveCoords(coordsObj) {
-  localStorage.setItem(COORDS, JSON.stringify(coordsObj));
-}
-
-function getWeather(lat, lon) {
-  fetch("https://api.openweathermap.org/data/2.5/weather?lat=".concat(lat, "&lon=").concat(lon, "&appid=").concat(API_KEY, "&units=metric")).then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    var temp = data.main.temp;
-    var weathers = data.weather[data.weather.length - 1];
-    weatherIcon.src = "https://openweathermap.org/img/wn/".concat(weathers.icon, "@2x.png");
-    weatherSpan.innerHTML = "".concat(temp, "&#176;C ").concat(weathers.main);
-  });
-}
-
-function handleGeoSucc(position) {
-  var latitude = position.coords.latitude; // 경도  
-
-  var longitude = position.coords.longitude; // 위도
-
-  var coordsObj = {
-    latitude: latitude,
-    longitude: longitude
-  };
-  saveCoords(coordsObj);
-  getWeather(latitude, longitude);
-}
-
-function handleGeoErr() {
-  console.log("geo err");
-}
-
-function requestCoords() {
-  navigator.geolocation.getCurrentPosition(handleGeoSucc, handleGeoErr);
-}
-
-function loadCoords() {
-  var loadedCoords = localStorage.getItem(COORDS);
-
-  if (loadedCoords === null) {
-    requestCoords();
-  } else {
-    var coords = JSON.parse(loadedCoords);
-    getWeather(coords.latitude, coords.longitude);
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
+
+  return bundleURL;
 }
 
-function init() {
-  loadCoords();
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+
+  return '/';
 }
 
-init();
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles/weather.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -380,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/weather.js"], null)
-//# sourceMappingURL=/weather.1925eeba.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/weather.9559615e.js.map
