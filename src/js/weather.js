@@ -1,5 +1,3 @@
-import "../styles/weather.css";
-
 const COORDS = "coords";
 const API_KEY = "76a3e5ae28ff2a5f76a18c6cb0242bde";
 

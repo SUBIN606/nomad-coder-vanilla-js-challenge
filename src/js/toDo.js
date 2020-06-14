@@ -1,4 +1,3 @@
-import "../styles/toDo.css";
 
 const toDoContainer = document.querySelector(".js-todo-container"),
   form = toDoContainer.querySelector(".js-toDo-form"),

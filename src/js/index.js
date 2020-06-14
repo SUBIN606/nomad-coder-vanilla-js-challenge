@@ -1,4 +1,3 @@
-import "../styles/styles.css"
 import images from "../images/*.jpg";
 
 const USERS = "users";
