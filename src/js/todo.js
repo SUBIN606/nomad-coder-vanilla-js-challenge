@@ -1,5 +1,5 @@
-const form = document.querySelector(".js-toDo-form"),
-  input = form.querySelector("input"),
+const toDoForm = document.querySelector(".js-toDo-form"),
+  toDoInput = form.querySelector("input"),
   pendingArea = document.querySelector(".js-pendingList"),
   finishedArea = document.querySelector(".js-finishedList");
 
@@ -116,20 +116,20 @@ const paintTask = (area, newId, text) => {
   }
 };
 
-const handleSubmit = e => {
+const handleToDoSubmit = e => {
   e.preventDefault();
-  const text = input.value;
+  const text = toDoInput.value;
   const newId = Date.now();
   const newTask = { id: newId, text: text };
 
   pendingList.push(newTask);
   saveTask(pendingList);
-  input.value = "";
+  toDoInput.value = "";
   paintTask(pendingArea, newId, text);
 };
 
-const init = () => {
+const toDoInit = () => {
   loadTask();
-  form.addEventListener("submit", handleSubmit);
+  toDoForm.addEventListener("submit", handleToDoSubmit);
 };
-init();
+toDoInit();
