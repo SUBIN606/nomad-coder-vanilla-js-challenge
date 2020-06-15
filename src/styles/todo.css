@@ -24,6 +24,7 @@ li{
 .js-todo-container::-webkit-scrollbar-track {   
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 1rem;
+    margin: 0.7rem;
 }
 
 .js-todo-container::-webkit-scrollbar-thumb {
