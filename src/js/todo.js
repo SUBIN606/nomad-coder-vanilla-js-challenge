@@ -117,7 +117,7 @@ const paintTask = (area, newId, text) => {
   }
 };
 
-const handleSubmit = e => {
+const handleToDoSubmit = e => {
   e.preventDefault();
   const text = toDoInput.value;
   const newId = Date.now();
@@ -131,6 +131,6 @@ const handleSubmit = e => {
 
 const init = () => {
   loadTask();
-  toDoForm.addEventListener("submit", handleSubmit);
+  toDoForm.addEventListener("submit", handleToDoSubmit);
 };
 init();
